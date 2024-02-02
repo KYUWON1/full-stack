@@ -1,0 +1,13 @@
+<%- include('../../shared/includes/head',{ pageTitle: 'Update Product' }) %> <!-- 헤더에 pageTitle값 동적생산하면서 하드코딩으로 전달-->
+<link rel="stylesheet" href="/styles/forms.css">\
+<script src="/scripts/image-preview.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header.ejs') %>
+    <main>
+        <h1>제품 Update</h1>
+        <!--multi파트에서는 csrf를 링크에 넣는방식으로 줄수있음-->
+        <%- include('includes/product-form.ejs',{ submitPath:'/admin/products/' + product.id, product: product
+        ,imageRequired:false}) %>
+    </main>
+<%- include('../../shared/includes/footer.ejs') %>

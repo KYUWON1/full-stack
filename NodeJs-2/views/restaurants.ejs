@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head.ejs')%>
+    <link rel="stylesheet" href="styles/restaurants.css" />
+  </head>
+  <body>
+    <%- include('includes/header.ejs')%> <%-
+    include('includes/side-drawer.ejs')%>
+    <main>
+      <h1>Recommended restaurants</h1>
+      <% if (numberOfRestaurants == 0) {%>
+      <!-- if문을 통해 원하는 html 출력  app.js에서 넘겨줌-->
+      <p>Sorry, we couldn't find any restaurants.</p>
+      <% } else { %>
+      <p>Find your next favorite restaurants with help of our other users!</p>
+      <p>We found <%= numberOfRestaurants %> restaurants.</p>
+      <!-- ejs를 통한 동적생성 <%= %> =는 html로 보지않음  ejs 템플릿엔진 정리하기-->
+      <form action="/restaurants" method="GET">
+        <input type="hidden" value="<%= nextOrder%>" name="order"> <!-- 쿼리매개변수 설정부분-->
+        <button class="btn">Change order</button>
+      </form>
+      <ul id="restaurants-list">
+        <% for (const restaurant of restaurants) { %><!-- ejs를 통한 동적생성 <% %>  -->
+        <%-include('includes/restaurants/restaurant-item',{restaurant:restaurant}) %><!-- 동적 html도 가능, 키값은 전달해주어야함 -->
+        <% } %>
+      </ul>
+      <% } %>
+    </main>
+  </body>
+</html>

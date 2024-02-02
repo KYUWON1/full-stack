@@ -1,0 +1,23 @@
+<%- include('../../shared/includes/head',{ pageTitle: 'All Products' }) %> <!-- 헤더에 pageTitle값 동적생산하면서 하드코딩으로 전달-->
+<link rel="stylesheet" href="/styles/products.css"> 
+<script src="/scripts/product-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header.ejs') %>
+    <main>
+        <h1>Product Administration</h1>
+        <section>
+            <h2>제품 관리</h2>
+            <p><a href="/admin/products/new" class="btn">제품 추가하기</a></p>
+        </section>
+        <section>
+            <ul id="products-grid">
+                <% for (const product of products ){ %>
+                <li>
+                    <%- include('../../shared/includes/product-item',{ product:product }) %> <!--include에 값전달-->
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+<%- include('../../shared/includes/footer.ejs') %>

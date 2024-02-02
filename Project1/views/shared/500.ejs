@@ -1,0 +1,10 @@
+<%- include('./includes/head',{ pageTitle: 'Error' }) %> <!-- 헤더에 pageTitle값 동적생산하면서 하드코딩으로 전달--> 
+</head>
+<body>
+    <%- include('./includes/header.ejs') %>
+    <main>
+        <h1>무언가 잘못되었습니다!</h1>
+        <p>잠시후에 시도해주세요.</p>
+        <p><a class='btn' href="/">되돌아가기</a></p>
+    </main>
+<%- include('./includes/footer.ejs') %>

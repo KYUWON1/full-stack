@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head.ejs')%>
+    <link rel="stylesheet" href="/styles/restaurants.css" />
+  </head>
+  <body>
+    <%- include('includes/header.ejs')%> <%-
+    include('includes/side-drawer.ejs')%>
+    <main>
+      <h1><%= restaurant.name%> <%= restaurant.id%></h1> <!-- rid를 동적으로 작성-->
+      <p><%= restaurant.cuisine%> | <%= restaurant.address%></p>
+      <p><%= restaurant.description%></p>
+      <p><a href="<%= restaurant.website%>">View website</a></p>
+    </main>
+  </body>
+</html>
